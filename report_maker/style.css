@@ -1,0 +1,351 @@
+@font-face {
+  font-family: 'GyeonggiTitleM';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiTitleM.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/*color_list*/
+:root {
+  --tab01 : rgb(127,127,127);
+  --tab02 : rgb(166,166,166);
+  --main : rgb(242,242,242);
+  --point : rgb(56,175,161);
+  --textpoint : rgb(40,133,159);
+  --line : rgb(217,217,217);
+}
+
+
+body {
+  width : 100%;
+  min-height : 100vh;
+  height : auto;
+  font-family: 'GyeonggiTitleM';
+  color: black;
+  margin : 0px auto;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: -.27em;
+  /*min-height: 1px;*/
+  vertical-align: top;
+  min-height : 100vh;
+  height : auto;
+
+}
+
+.wrapper-left {
+  padding-top : 50px;
+  /*background-color : var(--tab01);*/
+  padding-right : 0;
+  padding-left: 20px;
+  width : 8%;
+  font-size: 0.9vmax;
+}
+
+.wrapper-right {
+  padding-right: 20px;
+  width : 92%;
+}
+
+.header{
+top : 0px;
+width : 100%;
+height : 50px;
+}
+
+.header div{
+  background-color : white;
+  padding : 18px 10px 2px 30px;
+  color : var(--point);
+  text-align: left;
+  font-size : 1.6em;
+  font-weight: 1000;
+}
+
+.content{
+top : 50px;
+width : 100%;
+min-height : calc(100vh - 70px);
+height : auto;
+background-color : var(--main);
+font-size : 0.75vmax;
+}
+
+h1{
+  margin-top : 0px;
+  margin-bottom : 0px;
+  padding : 10px 0 10px 25px;
+  color : white;
+  background-color : var(--point);
+  text-align: left;
+  font-size : 18px;
+  font-weight: 500;
+}
+
+h2{
+color : var(--textpoint);
+font-size : 15px;
+font-weight : 500px;
+}
+
+/*doughnut-size*/
+.inner{
+  margin :0 auto;
+  max-height : 300px;
+  max-width  :300px;
+  height : 50%;
+  width : 50%;
+  top : 0px;
+  }
+
+canvas{
+  position: relative;
+  top:0px;
+  z-index:1;
+} 
+
+.chart-text{
+  top : 9em;
+  position: relative;
+  color : var(--textpoint);
+  text-align: center;
+  font-size : 20px;
+  font-weight: 700; 
+  z-index:2;
+}
+
+/*Space*/
+.area01{
+  padding : 30px 15px 15px 30px;
+  background-clip: content-box;
+  background-color : white;
+  box-sizing: border-box;
+  float : left;
+  width : 50%;
+  min-height : 40vh;
+  height : auto;
+}
+.area02{
+  padding : 30px 30px 15px 15px;
+  background-clip: content-box;
+  background-color : white;
+  box-sizing: border-box;
+  float : left;
+  width : 50%;
+  min-height : 40vh;
+  height : auto;
+}
+.area03{
+  padding : 15px 30px 30px 30px;
+  background-clip: content-box;
+  background-color : white;
+  box-sizing: border-box;
+  float : left;
+  width : 100%;
+  min-height : 60vh;
+  height : auto;
+}
+
+.one-table{
+  padding : 30px 30px 30px 30px;
+  background-clip: content-box;
+  background-color : white;
+  box-sizing: border-box;
+  float : left;
+  width : 100%;
+  min-height : calc(100vh - 70px);
+  height : auto;
+}
+
+.area-inner{
+padding : 10px 10px 10px 10px;
+}
+
+
+/*table thead*/
+table th{
+background-color : var(--main);
+color : var(--textpoint);
+text-align: center;
+border-bottom : 1px solid var(--line);
+width : 10%;
+padding : 5px;
+}
+
+/*table tbody*/
+table td{
+background-color:white;
+text-align: center;
+border-bottom : 1px solid var(--line);
+padding : 5px;
+word-break:break-all; /*길이 초과 시 자동줄바꿈*/
+}
+
+table{
+width:100%;
+border-top: 1px solid var(--line);
+border-collapse: collapse;
+padding : 5px;
+}
+
+/*container*/
+.con { 
+  position: relative;
+  width : 100%;
+  margin: 0px auto;
+}
+
+/*tab*/
+.con .menu div {
+  border-radius : 10% 0% 0% 10%;
+  text-align: center;
+  padding: 30px 10px 30px 10px;
+  margin-bottom: 1px;
+  color: var(--tab01);
+  background: var(--tab02);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  font-weight: 700;
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*tab active*/
+.con .menu div.active {
+  color: var(--point);
+  background-color : var(--main);
+  padding: 30px 10px 30px 10px;
+}
+
+/*header & content active*/
+ul.ac {
+  position: relative;
+  height : 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+ul.ac li {
+  opacity: 0;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+  position: absolute;
+  list-style: none;
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+ul.ac li.active {
+  background-color: var(--main);
+  width : 100%;
+  min-height : (100vh - 70px);
+  height : auto;
+  transition-delay: .1s;
+  z-index: 2;
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+/*vt-tabs*/
+.vt-tabs{
+background-color : var(--main);
+}
+
+.vt-tabs div{
+  border-radius : 10% 10% 0% 0%;
+  display : inline-block;
+  height : 20px;
+  width : 10vw;
+  max-width : 100px;
+  padding-top : 15px;
+  color : var(--tab01);
+  background-color : var(--line);
+  cursor: pointer;
+  text-align: center;
+  font-size : 0.8em;
+  font-weight: 550;
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*tab active*/
+.vt-tabs div.vt-active {
+  color: white;
+  background-color : var(--point);
+}
+
+.tab-content{
+  position: relative;
+  height: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  list-style: none;
+}
+
+.tab-content.vt-active{
+  min-height : (100vh - 70px);
+  height : auto;
+  transition-delay: .1s;
+  z-index: 2;
+  opacity: 1;
+}
+
+
+/*반응형*/
+@media (max-width: 1024px) {
+  .content{
+    font-size : 1.2vmax;
+  }
+  h2{
+    font-size : 13px;
+    }
+  .area01{
+    padding : 30px 30px 15px 30px;
+    width : 100%;
+  }
+  .area02{
+    padding : 15px 30px 15px 30px;
+    width : 100%;
+  }
+  .area03{
+    min-height : 20vh;
+  }
+  .wrapper-left{
+    font-size: 1px;
+  }
+  .vt-tabs div{
+    width : 10vw;
+  }
+  .vt-tabs div.vt-active {
+    width : 10vw;
+  }
+  .wrapper {
+    margin-left: -.27em;
+  }
+}
+
+@media (max-width: 768px) {
+  .area01{
+    padding : 15px 15px 7.5px 15px;
+  }
+  .area02{
+    padding : 7.5px 15px 7.5px 15px;
+  }
+  .area03{
+    padding : 7.5px 15px 15px 15px;
+  }
+  .one-table{
+    padding : 15px 15px 15px 15px;
+  }
+  .chart-text{
+    top : 26vw;
+  }
+  .wrapper-left{
+    font-size: 0;
+  }
+}

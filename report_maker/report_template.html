@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>Packet Analyze Report</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+  <div class="con">
+    <div class="wrapper wrapper-left">
+      <!--tab-->
+      <div class="menu">
+        <div class="active"><span class="light"></span><span>Summary</span></div>
+        <div><span class="light"></span><span>Packet<br>List</span></div>
+        <div><span class="light"></span><span>HTTP<br>Request</span></div>
+        <div><span class="light"></span><span>VirusTotal<br>Result</span></div>
+        <div><span class="light"></span><span>Relational<br>Analysis</span></div>
+      </div>
+    </div>
+    <div class="wrapper wrapper-right">
+      <!--tab_name-->
+      <div class="header">
+        <ul class="ac">
+          <li class="active">
+            <div>Summary</div>
+          </li>
+          <li>
+            <div>Packet List</div>
+          </li>
+          <li>
+            <div>HTTP Request</div>
+          </li>
+          <li>
+            <div>Virus Total Result</div>
+          </li>
+          <li>
+            <div>Relational Analysis</div>
+          </li>
+        </ul>
+      </div>
+
+      <!--content-->
+      <div class="content">
+        <ul class="ac">
+          <!--tab : summary-->
+          <li class="active">
+            <div class="area01">
+              <h1>Packet Scan Information</h1>
+              <div class="area-inner">
+                <table>
+                  <tr>
+                    <th>PCAP Name</th>
+                    <td>{pcap_name}</td>
+                  </tr>
+                  <tr>
+                    <th>Analysis Time</th>
+                    <td>{analysis_time}</td>
+                  </tr>
+                  <tr>
+                    <th>Capture Time</th>
+                    <td>{capture_time}</td>
+                  </tr>
+                  <tr>
+                    <th>Total Packet</th>
+                    <td>{total_packets}</td>
+                  </tr>
+                  <!--
+                  <tr>
+                    <th>Rule-Matched Packets</th>
+                    <td>{matched_packets}</td>
+                  </tr>
+                  -->
+                </table>
+              </div>
+            </div>
+            <div class="area02">
+              <h1>HTTP Request</h1>
+              <div class="area-inner">
+                <table>
+                  {http_list}
+                </table>
+              </div>
+            </div>
+            <div class="area03">
+              <h1>Packet List</h1>
+              <div class="area-inner">
+                <table>
+                  {sum_packet_list}
+                </table>
+              </div>
+            </div>
+          </li>
+          <!--tab : packet-list-->
+          <li class="packet">
+            <div class="one-table">
+              <h1>Packet List</h1>
+              <div class="area-inner">
+                {packet_list}
+              </div>
+            </div>
+          </li>
+          <!--tab : HTTP-Request-->
+          <li class="http">
+            <div class="one-table">
+              <h1>HTTP-Request</h1>
+              <div class="area-inner">
+                <table>
+                  {http_list}
+                </table>
+              </div>
+            </div>
+          </li>
+          <!--tab : VirusTotal-Result-->
+          <li class="vt">
+            <div class="one-table">
+              <div class="vt-tabs">
+                <!--vt list tabs-->
+                {vt_tab}
+              </div>
+              {creat_vt}
+
+              <!--vt list tabs content-->
+          </li>
+           
+          <!--tab : Relational Analysis-->
+          <li class="ra">
+            <div class="one-table">
+              <h1>Relational Analysis</h1>
+              <div class="area-inner">
+                {rel_report}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- script -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src="action.js"></script>
+
+</body>
+
+</html>
+
+</html>

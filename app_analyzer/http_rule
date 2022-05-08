@@ -1,0 +1,7 @@
+rule Ficker_Stealer
+{
+   strings:
+      $text_hex = {0C 00 0F 0A [0-4] 0B 0A 0B 0A}
+   condition:
+      $text_hex 
+}
